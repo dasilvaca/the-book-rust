@@ -1,4 +1,5 @@
 use rand::Rng;
+use std::cmp;
 use std::io;
 
 fn main() {
@@ -12,4 +13,10 @@ fn main() {
         .expect("Failed to read line!");
     let guess: u32 = guess.trim().parse().expect("Please use an integer!");
     println!("You guessed: {guess}");
+
+    match guess.cmp(&secret_number) {
+        cmp::Ordering::Greater => println!("The number I am thinking is shorter!"),
+        cmp::Ordering::Less => print!("The number I am thinking is greater!"),
+        cmp::Ordering::Equal => println!("You geuessed right!"),
+    }
 }

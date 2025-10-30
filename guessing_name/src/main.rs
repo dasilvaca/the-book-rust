@@ -1,5 +1,5 @@
-use std::io;
 use rand::Rng;
+use std::io;
 
 fn main() {
     println!("Guess the number!");
@@ -10,6 +10,6 @@ fn main() {
     io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line!");
-
+    let guess: u32 = guess.trim().parse().expect("Please use an integer!");
     println!("You guessed: {guess}");
 }

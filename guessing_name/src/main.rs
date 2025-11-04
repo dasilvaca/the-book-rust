@@ -16,7 +16,14 @@ fn main() {
 
     match guess.cmp(&secret_number) {
         cmp::Ordering::Greater => println!("The number I am thinking is shorter!"),
-        cmp::Ordering::Less => print!("The number I am thinking is greater!"),
-        cmp::Ordering::Equal => println!("You geuessed right!"),
+        cmp::Ordering::Less => println!("The number I am thinking is greater!"),
+        cmp::Ordering::Equal => println!("You guessed right!"),
+    }
+    if guess < secret_number {
+        println!("number is greater!");
+    } else if guess > secret_number {
+        println!("number is shorter!");
+    } else {
+        println!("you guessed right!");
     }
 }
